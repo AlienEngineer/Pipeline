@@ -5,7 +5,7 @@ C# implementation of a generic pipeline.
 
 
 ```C#
-var pipeline = new Pipeline();
+var pipeline = Pipeline.Create();
 pipeline.AddJob(job1);
 pipeline.AddJob(job2);
 pipeline.AddJob(job3);
