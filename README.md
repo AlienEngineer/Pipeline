@@ -6,19 +6,18 @@ C# implementation of a generic pipeline.
 
 ```C#
 
-// create
-var pipeline = Pipeline.Create();
-
 // setup
-pipeline
-  .AddJob(job1)
-  .AddJob(job2)
-  .AddJob(job3)
-  .AddJob(job4);
+var setup = Config
+  .Stage(new ParseFromString())
+  .Stage(new DivideByPI())
+  .Stage(new Format());
+  
+// create
+var pipeline = Pipeline.Create<String>(setup);
 
 // execute
-pipeline.Run();
+pipeline.Run(new String[] { "1", "2", "3", "4" });
 // or
-pipeline.RunAsync();
+pipeline.RunAsync(new String[] { "1", "2", "3", "4" });
 
 ```
