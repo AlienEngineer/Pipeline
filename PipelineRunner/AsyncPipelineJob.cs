@@ -36,5 +36,7 @@ namespace PipelineRunner
         {
             get { return (IQueue<object>)Output; }
         }
+
+        public bool PerformAsync { get { return true; } }
     }
 }

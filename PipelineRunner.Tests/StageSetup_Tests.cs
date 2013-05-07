@@ -1,6 +1,9 @@
 ﻿using NUnit.Framework;
-using PipelineRunner.Stages;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using PipelineRunner.Stages;
 
 namespace PipelineRunner.Tests
 {
