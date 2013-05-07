@@ -9,7 +9,7 @@ namespace PipelineRunner.Collections
     /// Represents a queue of elements
     /// </summary>
     /// <typeparam name="T">element type</typeparam>
-    interface IQueue<T>
+    public interface IQueue<T>
     {
 
         /// <summary>
@@ -23,6 +23,14 @@ namespace PipelineRunner.Collections
         /// </summary>
         /// <returns></returns>
         IEnumerable<T> GetElements();
+
+        /// <summary>
+        /// Gets the element count.
+        /// </summary>
+        /// <value>
+        /// The count.
+        /// </value>
+        int Count { get; }
 
     }
 }

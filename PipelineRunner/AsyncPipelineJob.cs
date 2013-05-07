@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PipelineRunner.Collections;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,14 @@ using System.Text;
 namespace PipelineRunner
 {
 
-    public abstract class AsyncPipelineJob<TParam, TResult> : IPipelineJob<TParam,TResult>
+    public abstract class AsyncPipelineJob<TParam, TResult> : IPipelineJob
     {
         public AsyncPipelineJob()
         {
-            Output = new BlockingCollection<TResult>();
+            Output = new BlockingQueue<TResult>();
         }
 
-        public BlockingCollection<TResult> Output { get; private set; }
+        public IQueue<TResult> Output { get; private set; }
 
         public void InternalPerform(TParam param)
         {
@@ -29,5 +30,16 @@ namespace PipelineRunner
         /// <param name="param">The param.</param>
         /// <returns></returns>
         public abstract TResult Perform(TParam param);
+
+
+        public void InternalPerform(object param)
+        {
+            InternalPerform((TParam)param);
+        }
+
+        IQueue<object> IPipelineJob<object, object>.Output
+        {
+            get { return (IQueue<object>)Output; }
+        }
     }
 }

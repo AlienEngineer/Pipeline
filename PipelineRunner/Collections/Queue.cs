@@ -24,5 +24,10 @@ namespace PipelineRunner.Collections
                 element = collection.First;
             }
         }
+
+        public int Count
+        {
+            get { return collection.Count; }
+        }
     }
 }

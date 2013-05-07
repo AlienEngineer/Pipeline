@@ -19,5 +19,10 @@ namespace PipelineRunner.Collections
         {
             return collection.GetConsumingEnumerable();
         }
+
+        public int Count
+        {
+            get { return collection.Count; }
+        }
     }
 }
