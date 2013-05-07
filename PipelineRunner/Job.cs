@@ -23,7 +23,7 @@ namespace PipelineRunner
         /// </summary>
         /// <param name="param">The param.</param>
         /// <returns></returns>
-        public abstract TResult Perform(TParam param);
+        public override abstract TResult Perform(TParam param);
 
 
     }

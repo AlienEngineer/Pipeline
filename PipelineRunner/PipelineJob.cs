@@ -7,9 +7,14 @@ using System.Text;
 namespace PipelineRunner
 {
 
-    class PipelineJob<TParam, TResult> : PipelineRunner.IPipelineJob<TParam,TResult>
+    public abstract class PipelineJob<TParam, TResult> : IPipelineJob<TParam,TResult>
     {
-        public BlockingCollection<TResult> Output { get; set; }
+        public PipelineJob()
+        {
+            Output = new BlockingCollection<TResult>();
+        }
+
+        public BlockingCollection<TResult> Output { get; private set; }
 
         public void InternalPerform(TParam param)
         {
