@@ -5,7 +5,7 @@ namespace PipelineRunner
 {
     interface IPipelineJob<TParam, TResult>
     {
-        void InternalPerform(TParam param);
+        TResult InternalPerform(TParam param);
         IQueue<TResult> Output { get; }
         Boolean PerformAsync { get; }
     }

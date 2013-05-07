@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 namespace PipelineRunner.Stages
 {
     class Stage : IStage
@@ -13,6 +14,7 @@ namespace PipelineRunner.Stages
         public IStage Next { get; set; }
 
         public IStage First { get; set; }
+
     }
 
 

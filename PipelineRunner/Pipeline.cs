@@ -1,4 +1,6 @@
-﻿using System.Threading;
+﻿using PipelineRunner.Pipelines;
+using PipelineRunner.Stages;
+using System.Threading;
 
 namespace PipelineRunner
 {
@@ -6,23 +8,22 @@ namespace PipelineRunner
     {
 
         /// <summary>
-        /// Creates a new Pipeline.
+        /// Creates a new Pipeline with a Cancellation token.
         /// </summary>
+        /// <param name="token">The token.</param>
         /// <returns></returns>
-        public static IPipeline Create()
+        public static IPipeline<TParam> Create<TParam>(CancellationToken token)
         {
             return null;
         }
 
         /// <summary>
-        /// Creates a new Pipeline with a Cancellation token.
+        /// Creates a new Pipeline.
         /// </summary>
-        /// <param name="token">The token.</param>
         /// <returns></returns>
-        public static IPipeline Create(CancellationToken token)
+        public static IPipeline<TParam> Create<TParam>(StageSetup<double, string> stageSetup)
         {
-            return null;
+            return new BasicPipeline<TParam>(stageSetup.ToEnumerable());
         }
-
     }
 }

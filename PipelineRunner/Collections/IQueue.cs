@@ -29,5 +29,10 @@ namespace PipelineRunner.Collections
         /// </value>
         int Count { get; }
 
+
+        /// <summary>
+        /// Completes the adding.
+        /// </summary>
+        void CompleteAdding();
     }
 }

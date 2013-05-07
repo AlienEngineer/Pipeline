@@ -21,5 +21,11 @@ namespace PipelineRunner.Collections
         {
             get { return collection.Count; }
         }
+
+
+        public void CompleteAdding()
+        {
+            collection.CompleteAdding();
+        }
     }
 }

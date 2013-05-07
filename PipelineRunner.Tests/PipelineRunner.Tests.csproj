@@ -54,6 +54,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="IPipeline_Tests.cs" />
     <Compile Include="Job_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StageSetup_Tests.cs" />

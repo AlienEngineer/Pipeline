@@ -7,14 +7,7 @@ namespace PipelineRunner
     {
         public AsyncPipelineJob()
         {
-            Output = new BlockingQueue<TResult>();
-        }
-
-        public IQueue<TResult> Output { get; private set; }
-
-        public void InternalPerform(TParam param)
-        {
-            Output.Add(Perform(param));
+            Output = new BlockingQueue<object>();
         }
 
         /// <summary>
@@ -26,16 +19,14 @@ namespace PipelineRunner
         /// <returns></returns>
         public abstract TResult Perform(TParam param);
 
-
-        public void InternalPerform(object param)
+        public object InternalPerform(object param)
         {
-            InternalPerform((TParam)param);
+            var result = Perform((TParam)param);
+            Output.Add(result);
+            return result;
         }
 
-        IQueue<object> IPipelineJob<object, object>.Output
-        {
-            get { return (IQueue<object>)Output; }
-        }
+        public IQueue<object> Output { get; private set; }
 
         public bool PerformAsync { get { return true; } }
     }
