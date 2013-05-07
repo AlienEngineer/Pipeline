@@ -1,6 +1,5 @@
 ﻿using PipelineRunner.Collections;
 using System;
-using System.Collections.Concurrent;
 
 namespace PipelineRunner
 {
