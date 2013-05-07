@@ -6,7 +6,7 @@ namespace PipelineRunner.Tests
     [TestFixture]
     public class Job_Tests
     {
-        class SimpleJob : Job<Int32, String>
+        class SimpleJob : AsyncJob<Int32, String>
         {
             public override string Perform(int param)
             {
@@ -15,7 +15,7 @@ namespace PipelineRunner.Tests
         }
 
         [Test]
-        public void TestMethod1()
+        public void SimpleJob_Assert_Output()
         {
             var job = new SimpleJob();
 

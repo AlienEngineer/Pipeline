@@ -12,7 +12,7 @@ namespace PipelineRunner
     /// </summary>
     /// <typeparam name="TParam">The type of the param.</typeparam>
     /// <typeparam name="TResult">The type of the result.</typeparam>
-    public abstract class Job<TParam, TResult> : PipelineJob<TParam, TResult>
+    public abstract class AsyncJob<TParam, TResult> : AsyncPipelineJob<TParam, TResult>
     {
 
 

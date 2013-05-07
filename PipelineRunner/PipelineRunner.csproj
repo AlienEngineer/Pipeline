@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IPipeline.cs" />
     <Compile Include="IPipelineJob.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="Pipeline.cs" />
     <Compile Include="PipelineJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

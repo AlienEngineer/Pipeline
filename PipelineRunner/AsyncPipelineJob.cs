@@ -7,9 +7,9 @@ using System.Text;
 namespace PipelineRunner
 {
 
-    public abstract class PipelineJob<TParam, TResult> : IPipelineJob<TParam,TResult>
+    public abstract class AsyncPipelineJob<TParam, TResult> : IPipelineJob<TParam,TResult>
     {
-        public PipelineJob()
+        public AsyncPipelineJob()
         {
             Output = new BlockingCollection<TResult>();
         }
