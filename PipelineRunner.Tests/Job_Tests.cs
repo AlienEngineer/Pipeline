@@ -4,11 +4,12 @@ using System;
 namespace PipelineRunner.Tests
 {
     [TestFixture]
-    public class UnitTest1
+    public class Job_Tests
     {
         [Test]
         public void TestMethod1()
         {
+
         }
     }
 }
