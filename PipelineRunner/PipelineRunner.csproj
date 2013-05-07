@@ -45,9 +45,10 @@
     <Compile Include="Helpers.cs" />
     <Compile Include="IPipeline.cs" />
     <Compile Include="IPipelineJob.cs" />
-    <Compile Include="AsyncJob.cs" />
+    <Compile Include="Jobs\AsyncJob.cs" />
+    <Compile Include="Jobs\LambdaAsyncJob.cs" />
     <Compile Include="Pipeline.cs" />
-    <Compile Include="AsyncPipelineJob.cs" />
+    <Compile Include="Jobs\AsyncPipelineJob.cs" />
     <Compile Include="Pipelines\BasicPipeline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stages\IStage.cs" />

@@ -1,4 +1,6 @@
-﻿
+﻿using PipelineRunner.Jobs;
+using System;
+
 namespace PipelineRunner.Stages
 {
     public class StageSetup<TParam, TResult>
@@ -26,7 +28,7 @@ namespace PipelineRunner.Stages
             }
         }
 
-        internal StageSetup<TResult, TNextResult> Stage<TNextResult>(AsyncJob<TResult, TNextResult> job)
+        public StageSetup<TResult, TNextResult> Stage<TNextResult>(AsyncJob<TResult, TNextResult> job)
         {
             // Append the next stage
             stage.Next = new Stage(job)
@@ -36,6 +38,11 @@ namespace PipelineRunner.Stages
 
             // Wrap the new stage with a setup
             return new StageSetup<TResult, TNextResult>(stage.Next);
+        }
+
+        public StageSetup<TResult, TNextResult> Stage<TNextResult>(Func<TResult, TNextResult> func)
+        {
+            return Stage(new LambdaAsyncJob<TResult, TNextResult>(func));
         }
     }
 }

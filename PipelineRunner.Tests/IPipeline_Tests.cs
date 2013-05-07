@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using PipelineRunner.Jobs;
 using PipelineRunner.Stages;
 using System;
 using System.Collections.Generic;
@@ -45,20 +46,56 @@ namespace PipelineRunner.Tests
             }
         }
 
-        private static StageSetup<double, string> ConfigStages()
+        [Test]
+        public void IPipeline_Assert_Creation()
         {
             var setup = Config
                 .Stage(new ParseFromString())
                 .Stage(new DivideByPI())
                 .Stage(new Format());
 
-            return setup;
+            var pipeline = Pipeline.Create<String>(setup);
+
+            var param = new List<String>();
+
+            for (int i = 0; i < 1000; i++)
+            {
+                param.Add("" + i);
+            }
+
+            pipeline.Run(param);
+        }
+
+
+        [Test]
+        public void IPipeline_Assert_Creation_WithLambdaAsyncJob()
+        {
+            var setup = Config
+                .Stage(new LambdaAsyncJob<String, int>(i => int.Parse(i)))
+                .Stage(new LambdaAsyncJob<int, double>(i => i/Math.PI))
+                .Stage(new LambdaAsyncJob<double, String>(i => i.ToString()));
+
+            var pipeline = Pipeline.Create<String>(setup);
+
+            var param = new List<String>();
+
+            for (int i = 0; i < 1000; i++)
+            {
+                param.Add("" + i);
+            }
+
+            pipeline.Run(param);
         }
 
         [Test]
-        public void IPipeline_Assert_Creation()
+        public void IPipeline_Assert_Creation_WithLambda()
         {
-            var pipeline = Pipeline.Create<String>(ConfigStages());
+            var setup = Config
+                .Stage((string i) => int.Parse(i))
+                .Stage(i => i / Math.PI)
+                .Stage(i => i.ToString());
+
+            var pipeline = Pipeline.Create<String>(setup);
 
             var param = new List<String>();
 

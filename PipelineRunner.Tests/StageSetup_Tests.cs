@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using PipelineRunner.Jobs;
 using PipelineRunner.Stages;
 using System;
 

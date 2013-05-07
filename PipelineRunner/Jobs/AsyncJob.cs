@@ -1,5 +1,5 @@
 ﻿
-namespace PipelineRunner
+namespace PipelineRunner.Jobs
 {
     /// <summary>
     /// 
@@ -20,7 +20,6 @@ namespace PipelineRunner
         /// <param name="param">The param.</param>
         /// <returns></returns>
         public override abstract TResult Perform(TParam param);
-
 
     }
 }

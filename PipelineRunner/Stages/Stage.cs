@@ -1,5 +1,7 @@
-﻿
+﻿using PipelineRunner.Jobs;
+using System;
 using System.Collections.Generic;
+
 namespace PipelineRunner.Stages
 {
     class Stage : IStage
@@ -23,6 +25,11 @@ namespace PipelineRunner.Stages
         public static StageSetup<TParam, TResult> Stage<TParam, TResult>(AsyncJob<TParam, TResult> job)
         {
             return new StageSetup<TParam, TResult>(new Stage(job));
+        }
+
+        public static StageSetup<TParam, TResult> Stage<TParam, TResult>(Func<TParam, TResult> func)
+        {
+            return Stage(new LambdaAsyncJob<TParam, TResult>(func));
         }
     }
 

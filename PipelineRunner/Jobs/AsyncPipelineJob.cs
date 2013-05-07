@@ -1,6 +1,6 @@
 ﻿using PipelineRunner.Collections;
 
-namespace PipelineRunner
+namespace PipelineRunner.Jobs
 {
 
     public abstract class AsyncPipelineJob<TParam, TResult> : IPipelineJob

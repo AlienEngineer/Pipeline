@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using PipelineRunner.Jobs;
 using System;
 
 namespace PipelineRunner.Tests
